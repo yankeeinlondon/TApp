@@ -1,0 +1,12 @@
+{
+    "install": [
+        { "prompt": "Application Name:", "type": "string" },
+        { "prompt": "Targets:", "type": "multi-choice", "choices": [
+            "desktop",
+            "ios",
+            "android",
+            "web"
+        ]}
+    ],
+    "ignore": []
+}
