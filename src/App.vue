@@ -3,11 +3,11 @@
 // you can use this to manipulate the document head in any components,
 // they will be rendered correctly in the html results with vite-ssg
 useHead({
-  title: 'Vitesse',
+  title: 'TApp',
   meta: [
     {
       name: 'description',
-      content: 'Opinionated Vite Starter Template',
+      content: 'Opinionated Tauri Starter Template',
     },
     {
       name: 'theme-color',
@@ -21,19 +21,9 @@ useHead({
       href: () => preferredDark.value ? '/favicon-dark.svg' : '/favicon.svg',
     },
   ],
-})
+});
 </script>
 
 <template>
-  <HeaderNav transparent>
-    <template #right >
-      <SideNav class="side-nav" items="Home,About,Commands"  />
-    </template>
-    <div class="page-content">
-      TEST
-      
-    </div>
-    <div class="callout-right">right</div>
-  </HeaderNav>
-  <RouterView />
+<RouterView />  
 </template>

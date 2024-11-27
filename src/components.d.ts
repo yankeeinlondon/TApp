@@ -7,11 +7,21 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    Avatar: typeof import('./components/Avatar.vue')['default']
+    Btn: typeof import('./components/Btn.vue')['default']
+    Footer: typeof import('./components/Footer.vue')['default']
+    Group: typeof import('./components/Group.vue')['default']
     HeaderNav: typeof import('./components/HeaderNav.vue')['default']
+    HNav: typeof import('./components/HNav.vue')['default']
+    HorizontalNav: typeof import('./components/HorizontalNav.vue')['default']
+    NavBtn: typeof import('./components/NavBtn.vue')['default']
+    NavButton: typeof import('./components/NavButton.vue')['default']
+    Pop: typeof import('./components/Pop.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     SideNav: typeof import('./components/SideNav.vue')['default']
     SideNavItem: typeof import('./components/SideNavItem.vue')['default']
     TheFooter: typeof import('./components/TheFooter.vue')['default']
+    VNav: typeof import('./components/VNav.vue')['default']
   }
 }

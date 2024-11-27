@@ -1,14 +1,27 @@
 <script setup lang="ts">
-import { ref } from "vue";
-import { invoke } from "@tauri-apps/api/core";
+import { animate, stagger } from "motion";
+import { GroupedItem } from "~/types";
+import Usage from "../pages/usage.md";
+import { TypedFunction } from "inferred-types/types";
 
-const greetMsg = ref("");
-const name = ref("");
-
-async function greet() {
-  // Learn more about Tauri commands at https://tauri.app/develop/calling-rust/
-  greetMsg.value = await invoke("greet", { name: name.value });
+const onEnter = async (el: Element, onComplete: TypedFunction) => {
+  console.log("entered")
+  await animate(
+    el,
+    { opacity: 1, x: 200 },
+    { duration: 1 }
+  );
+  onComplete();
 }
+
+const items: GroupedItem[] = [
+  { id: "home", hover: "Home Page", iconName: "carbon-home",  to: "/" },
+  { id: "about", hover: "About TApp", iconName: "carbon-information",  to: "/about" },
+  { id: "commands", hover: "Commands API", iconName: "carbon-data-1",  to: "/commands" },
+  { id: "animation", hover: "Animation", iconName: "clarity-animation-line",  to: "/animation" },
+  { id: "storage", hover: "Storage", iconName: "carbon-db2-database",  to: "/storage" }
+]
+
 </script>
 
 <template>
@@ -28,11 +41,14 @@ async function greet() {
     </div>
     <p>Using Tauri, Vite, and Vue to deploy to desktop, mobile, and browser.</p>
 
-    <form class="row" @submit.prevent="greet">
-      <input id="greet-input" v-model="name" placeholder="Enter a name..." />
-      <button type="submit">Greet</button>
-    </form>
-    <p>{{ greetMsg }}</p>
+    
+    <div mt-1>
+      <Usage />
+    </div>
+
+    <div class="grouping">
+      <group handler="navigation" :items="items" :outline="true" direction="row" />
+    </div>
   </main>
 </template>
 

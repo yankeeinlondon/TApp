@@ -1,10 +1,13 @@
-button:
-  about: About
-  back: Back
-  go: GO
+routes:
   home: Home
-  toggle_dark: Toggle dark mode
-  toggle_langs: Change languages
+  about: About
+  commands: Commands
+  storage: Storage
+  components: Components
+  animation: Animation
+  web: Web
+global:
+  toggle_dark: Toggle Light and Dark Mode
 intro:
   desc: Opinionated Vite Starter Template
   dynamic-route: Demo of dynamic route
