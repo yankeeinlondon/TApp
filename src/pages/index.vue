@@ -1,26 +1,6 @@
 <script setup lang="ts">
-import { animate, stagger } from "motion";
-import { GroupedItem } from "~/types";
 import Usage from "../pages/usage.md";
-import { TypedFunction } from "inferred-types/types";
 
-const onEnter = async (el: Element, onComplete: TypedFunction) => {
-  console.log("entered")
-  await animate(
-    el,
-    { opacity: 1, x: 200 },
-    { duration: 1 }
-  );
-  onComplete();
-}
-
-const items: GroupedItem[] = [
-  { id: "home", hover: "Home Page", iconName: "carbon-home",  to: "/" },
-  { id: "about", hover: "About TApp", iconName: "carbon-information",  to: "/about" },
-  { id: "commands", hover: "Commands API", iconName: "carbon-data-1",  to: "/commands" },
-  { id: "animation", hover: "Animation", iconName: "clarity-animation-line",  to: "/animation" },
-  { id: "storage", hover: "Storage", iconName: "carbon-db2-database",  to: "/storage" }
-]
 
 </script>
 
@@ -46,9 +26,7 @@ const items: GroupedItem[] = [
       <Usage />
     </div>
 
-    <div class="grouping">
-      <group handler="navigation" :items="items" :outline="true" direction="row" />
-    </div>
+
   </main>
 </template>
 

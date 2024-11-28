@@ -140,7 +140,6 @@ if(matcher) {
     @click="onClick"
     @hover="onHover"
     @focus="onFocus"
-    hover:shadow-md
 >
     <slot :id="id" :title="title" :hover="hover">
         <div v-if="iconName" v-bind="iconName as object"></div>

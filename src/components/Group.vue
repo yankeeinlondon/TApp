@@ -59,8 +59,8 @@ p.items.forEach(i => {
     }
 });
 
-const onSuggest = (id: string, match: string | RegExp, route: string) => {
-    console.log(`${id} thinks it's active for route ${route}`, match);
+const onClick = (id: string) => {
+    active.value = id;
 }
 
 </script>
@@ -78,7 +78,7 @@ const onSuggest = (id: string, match: string | RegExp, route: string) => {
                 v-if="handler === 'navigation'"
                 v-bind="item" h-full
                 :active="active === item.id"
-                @suggest="onSuggest"
+                @click="onClick"
             />
         </slot>
     </li>

@@ -1,5 +1,30 @@
 <script setup lang="ts">
-    const {t} = useI18n();
+import { GroupedItem } from '../types';
+import { TypedFunction } from "inferred-types/types";
+import { animate } from "motion";
+const onEnter = async (el: Element, onComplete: TypedFunction) => {
+  console.log("entering", el)
+  await animate(el, { opacity: 1 })
+  onComplete()
+}
+
+const onLeave = async (el: Element, onComplete: TypedFunction) => {
+  await animate(el, { opacity: 0 })
+  onComplete()
+}
+const {t} = useI18n();
+
+const items: GroupedItem[] = [
+  { id: "home", hover: "Home Page", iconName: "carbon-home",  to: "/" },
+  { id: "about", hover: "About TApp", iconName: "carbon-information",  to: "/about" },
+  { id: "commands", hover: "Commands API", iconName: "carbon-data-1",  to: "/commands" },
+  { id: "components", hover: "VueJS Components", iconName: "material-symbols-package-2-outline",  to: "/components" },
+  { id: "animation", hover: "Animation", iconName: "clarity-animation-line",  to: "/animation" },
+  { id: "storage", hover: "Storage", iconName: "carbon-db2-database",  to: "/storage" }
+];
+
+
+
 </script>
 <template>
 <div class="default-view">
@@ -21,7 +46,11 @@
 </h-nav>    
 
 <div class="page-content">
-  <RouterView />
+  <router-view v-slot="{Component}">
+    <transition @enter="onEnter" @leave="onLeave" :css="false" mode="out-in">
+      <component :is="Component" />
+    </transition>
+  </router-view>
 </div>
 
 <Footer text-xl blurred>
@@ -50,6 +79,7 @@
         <div i-carbon-db2-database />
       </RouterLink>
 
+      <group handler="navigation" :items="items" :outline="true" direction="row" />
   </nav>
   <template #left>
     <a icon-btn rel="noreferrer" href="https://github.com/yankeeinlondon/tapp" target="_blank" title="GitHub">
@@ -76,7 +106,9 @@
 }
 
 .page-content {
-  height: 100vh;
+  height: auto;
+  justify-self: center;
+  margin-top: 5rem;
 }
 </style>
 

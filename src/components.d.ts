@@ -8,6 +8,7 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     Avatar: typeof import('./components/Avatar.vue')['default']
+    Blurry: typeof import('./components/Blurry.vue')['default']
     Btn: typeof import('./components/Btn.vue')['default']
     Footer: typeof import('./components/Footer.vue')['default']
     Group: typeof import('./components/Group.vue')['default']
@@ -17,6 +18,7 @@ declare module 'vue' {
     NavBtn: typeof import('./components/NavBtn.vue')['default']
     NavButton: typeof import('./components/NavButton.vue')['default']
     Pop: typeof import('./components/Pop.vue')['default']
+    RingBox: typeof import('./components/RingBox.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     SideNav: typeof import('./components/SideNav.vue')['default']
