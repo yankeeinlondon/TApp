@@ -1,6 +1,10 @@
 @import "./colors.css";
 
 :root {
+  --font-sanserif: "Roboto", ui-san-serif, system-ui;
+  --font-informal: "Chewy";
+  --font-monospace: 'DM Mono', monospace;
+
   --primary: var(--tw-purple-500);
   --secondary: var(--tw-indigo-500);
   --text: var(--tw-gray-900);
@@ -8,7 +12,7 @@
   --hover-text: var(--tw-blue-600);
   --popover-text: var(--tw-gray-100);
   --bg: var(--tw-white);
-  --shiki-bg: var(--tw-neutral-100);
+  --code-bg: var(--tw-neutral-100);
   --popover-bg: var(--tw-slate-700);
   --header-bg: var(--tw-gray-700);
   --footer-bg: var(--tw-gray-800);
@@ -25,6 +29,7 @@ html.dark {
   --hover-text: var(--tw-blue-400);
   --popover-text: var(--tw-gray-100);
   --bg: var(--tw-gray-900);
+  --code-bg: var(--tw-slate-950);
   --shiki-bg: var(--tw-red)
   --popover-bg: var(--tw-slate-200);
   --header-bg: var(--tw-gray-800);
@@ -40,6 +45,8 @@ body,
   height: 100%;
   margin: 0;
   padding: 0;
+  transition-behavior: allow-discrete;
+  font-family: var(--font-sanserif);
 }
 
 html, body {
@@ -54,16 +61,29 @@ html.dark, .dark body {
   color-scheme: dark;
 }
 
+.font-informal {
+  font-family: var(--font-informal);
+}
+
+.font-sanserif {
+  font-family: var(--font-sanserif);
+}
+
+html h1 {
+  font-family: var(--font-informal);
+  font-size: 36px;
+}
+
 html .shiki,
 html .shiki span {
   color: var(--shiki-light);
-  background: var(--shiki-bg);
+  background: var(--code-bg);
 }
 
 html.dark .shiki,
 html.dark .shiki span {
   color: var(--shiki-dark);
-  background: var(--shiki-bg);
+  background: var(--code-bg);
 }
 
 .prose pre:not(.shiki) {
@@ -71,7 +91,7 @@ html.dark .shiki span {
 }
 
 .prose .shiki {
-  font-family: 'DM Mono', monospace;
+  font-family: var(--font-monospace);
   font-size: 1.2em;
   line-height: 1.4;
 }

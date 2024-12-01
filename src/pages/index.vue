@@ -6,7 +6,7 @@ import Usage from "../pages/usage.md";
 
 <template>
   <main class="container">
-    <h1 text-2xl>Welcome to TApp</h1>
+    <h1>Welcome to TApp</h1>
 
     <div class="row">
       <a href="https://vitejs.dev" target="_blank">
@@ -20,12 +20,14 @@ import Usage from "../pages/usage.md";
       </a>
     </div>
     <p>Using Tauri, Vite, and Vue to deploy to desktop, mobile, and browser.</p>
-
     
     <div mt-1>
       <Usage />
     </div>
 
+    <block lang="ts">
+    const foo = "bar";
+    </block>
 
   </main>
 </template>
@@ -125,30 +127,6 @@ button:active {
 input,
 button {
   outline: none;
-}
-
-#greet-input {
-  margin-right: 5px;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    color: #f6f6f6;
-    background-color: #2f2f2f;
-  }
-
-  a:hover {
-    color: #24c8db;
-  }
-
-  input,
-  button {
-    color: #ffffff;
-    background-color: #0f0f0f98;
-  }
-  button:active {
-    background-color: #0f0f0f69;
-  }
 }
 
 </style>

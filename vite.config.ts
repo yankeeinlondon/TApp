@@ -78,6 +78,7 @@ export default defineConfig(async () => ({
     Markdown({
       wrapperClasses: 'prose prose-sm m-auto text-left',
       headEnabled: true,
+      exportFrontmatter: true,
       async markdownItSetup(md) {
         md.use(LinkAttributes, {
           matcher: (link: string) => /^https?:\/\//.test(link),
@@ -134,7 +135,10 @@ export default defineConfig(async () => ({
     }),
 
     // https://github.com/feat-agency/vite-plugin-webfont-dl
-    WebfontDownload(),
+    WebfontDownload([
+      "https://fonts.googleapis.com/css2?family=RobotoP&display=swap",
+      "https://fonts.googleapis.com/css2?family=Chewy&display=swap",
+    ]),
 
     // https://github.com/webfansplz/vite-plugin-vue-devtools
     VueDevTools(),

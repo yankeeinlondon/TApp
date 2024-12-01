@@ -18,3 +18,6 @@ and although less considered there is also:
 
 
 <Blurry />
+
+
+ Since we're focused on layouts and routing we'll stop there with this component but do know that it _also_ provides the concept of [Data Loaders](https://uvr.esm.is/data-loaders/) which may be worth a look see when you have the time.

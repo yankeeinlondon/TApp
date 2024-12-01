@@ -43,6 +43,41 @@ Produces a <Pop id="pop-example" text="this is popover text">popover</Pop> effec
 Provides a circular representation for a person/user which when clicked opens up a details menu.
 
 
+### Badge and Tag
+
+An empty **badge** <badge />, a numeric **badge** <badge color="orange">1</badge>, and a **tag** <tag>foo</tag> are walking down the street.
+
+#### Sizing and Position
+
+<badge size="xs">1</badge> <badge size="sm">2</badge>
+<badge size="md">3</badge> <badge size="lg">4</badge>
+<badge size="xl" >5</badge> prose text&nbsp;
+
+<badge size="xs" subscript>1</badge> <badge size="sm" subscript>2</badge>
+<badge size="md" subscript>3</badge> <badge size="lg" subscript>4</badge>
+<badge size="xl" >5</badge> subscript&nbsp;
+
+<badge size="xs" superscript>1</badge> <badge size="sm" superscript>2</badge>
+<badge size="md" superscript>3</badge> <badge size="lg" superscript>4</badge>
+<badge size="xl" >5</badge> superscript&nbsp;
+
+##### Tags
+
+<tag size="xs">xs</tag> <tag size="sm">sm</tag>&nbsp;
+<tag size="md">md</tag> <tag size="lg">lg</tag>&nbsp;
+<tag size="xl" >xl</tag> prose text&nbsp;
+
+<tag size="xs" subscript>xs</tag> <tag size="sm" subscript>sm</tag>&nbsp;
+<tag size="md" subscript>md</tag> <tag size="lg" subscript>lg</tag>&nbsp;
+<tag size="xl" >xl</tag> sub&nbsp;
+
+<tag size="xs" superscript>1</tag> <tag size="sm" superscript>2</tag>&nbsp;
+<tag size="md" superscript>3</tag> <tag size="lg" superscript>4</tag>&nbsp;
+<tag size="xl" >5</tag> super&nbsp;
+
+
+### Blurry
+
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.

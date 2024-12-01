@@ -1,3 +1,4 @@
+
 <script setup lang="ts">
 import { ref } from "vue";
 import { invoke } from "@tauri-apps/api/core"
@@ -9,6 +10,11 @@ async function greet() {
   greetMsg.value = await invoke("greet", { name: name.value });
 }
 </script>
+<route lang="yaml">
+meta:
+  layout: hero
+  title: Commands
+</route>
 
 # Tauri Commands 
 

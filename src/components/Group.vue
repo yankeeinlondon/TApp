@@ -2,10 +2,9 @@
 <script setup lang="ts">
 // import { animate, stagger } from "motion";
 import { CssFlexDirection, CssSizing } from "inferred-types/types";
-import { Direction, GroupedItem } from "../types/index";
-import { isRegExp, isString } from "inferred-types/runtime";
+import { Direction, ParamData } from "../types/index";
+import { ensureLeading, isInlineSvg, isRegExp, isString } from "inferred-types/runtime";
 
-const hi = () => console.log("hi")
 
 const KNOWN_HANDLERS = [
     "navigation",
@@ -27,7 +26,7 @@ const p = withDefaults(
         stagger?: Direction | undefined,
         handler?: GroupHandler,
         /** the data definition of the items being grouped */
-        items: GroupedItem[],
+        items: ParamData[],
         gap?: CssSizing,
         direction?: CssFlexDirection
     }>(),
@@ -59,8 +58,22 @@ p.items.forEach(i => {
     }
 });
 
-const onClick = (id: string) => {
-    active.value = id;
+const binding = (item: ParamData) => {
+    if(handler.value === "navigation") {
+        return {
+            to: item.to || "/",
+            title: item.title || item.name,
+            icon: isInlineSvg(item.icon) 
+                ? item.icon 
+                : isString(item.icon) && item.icon === "" 
+                    ? ensureLeading(item.icon, "i-")
+                    : item.icon,
+            disabled: item.disabled || false,
+            hover: item.hover
+        }
+    }
+
+    return {}
 }
 
 </script>
@@ -70,16 +83,17 @@ const onClick = (id: string) => {
 <ul :id="p.id" class="group" >
     <li 
         class="group-item"
-        v-for="item in items" :key="item.id"
+        v-for="item in items" key="item.id"
     >
         <slot :item="item">
             <div v-if="!handler" class="content">{{ item.name }}</div>
-            <btn 
+            <router-link 
                 v-if="handler === 'navigation'"
-                v-bind="item" h-full
-                :active="active === item.id"
-                @click="onClick"
-            />
+                v-bind="binding(item)"
+                icon-btn
+            >
+                <div v-if="item.icon" :data-hover="item.hover" v-bind="{[item.icon]:''}"></div>
+            </router-link>
         </slot>
     </li>
 

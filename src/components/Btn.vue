@@ -18,7 +18,7 @@ const p = withDefaults(
         title?: string,
         name?: string,
         hover?: string,
-        iconName?: string,
+        icon?: string,
         active?: boolean,
         /** Make into a link action */
         to?: string,
@@ -30,7 +30,7 @@ const p = withDefaults(
         active: false,
         title: undefined,
         hover: undefined,
-        iconName: undefined,
+        icon: undefined,
         outline: false,
         svgButton: false
     }
@@ -62,9 +62,9 @@ const handlesExternalLink = computed(
 
 const disabled = computed(() => p.disabled ? true : false);
 
-const iconName = computed<Record<string,""> | undefined>(
-  () => p.iconName
-    ? { [ensureLeading(p.iconName, "i-")]: "" }
+const icon = computed<Record<string,""> | undefined>(
+  () => p.icon
+    ? { [ensureLeading(p.icon, "i-")]: "" }
     : undefined
 );
 
@@ -142,7 +142,7 @@ if(matcher) {
     @focus="onFocus"
 >
     <slot :id="id" :title="title" :hover="hover">
-        <div v-if="iconName" v-bind="iconName as object"></div>
+        <div v-if="icon" v-bind="icon as object"></div>
         <div v-if="title" class="btn-title">{{  title || "" }}</div>
     </slot>
     <div class="hover-content" hidden>

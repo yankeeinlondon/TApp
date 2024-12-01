@@ -1,3 +1,4 @@
+
 # Animation in TApp
 
 While VueJS provides basic animation primitives and CSS keeps on increasing its reach, a native app has more expectations on it for professional animation. For that reason, and just cuz we like bouncing balls and things, we have added the [Motion One]() library.

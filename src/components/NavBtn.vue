@@ -4,12 +4,12 @@
 -->
 <script setup lang="ts">
 import { ensureLeading } from 'inferred-types/runtime';
-import { GroupedItem } from '~/types';
+import { ParamData } from '~/types';
 
 const p = withDefaults(
     defineProps<{
       active?: boolean,
-      data: GroupedItem
+      data: ParamData
     }>(),
     {
        active: false
@@ -18,9 +18,9 @@ const p = withDefaults(
 
 const id = computed(() => `nav-item-${p.data.id}`);
 
-const iconName = computed(
-  () => p.data.iconName
-    ? { [ensureLeading(p.data.iconName, "i-")]: "" }
+const icon = computed(
+  () => p.data.icon
+    ? { [ensureLeading(p.data.icon, "i-")]: "" }
     : undefined
 );
 
@@ -42,7 +42,7 @@ const go = () => {
     class="nav-item" py-3 px-2 cursor-pointer select-none 
     @click="go"
 >
-  <div v-if="iconName" v-bind="iconName"></div>
+  <div v-if="icon" v-bind="icon"></div>
   <div v-if="p.data.name" class="name"> {{ p.data.name }} </div>
 </btn>
 </template>

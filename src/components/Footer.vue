@@ -56,7 +56,6 @@ footer .content {
   color: var(--text);
 }
 
-
 .footer-blur::before {
   content: "";
   position: absolute;
@@ -69,6 +68,4 @@ footer .content {
     transparent 100%
   );
 }
-
-
 </style>

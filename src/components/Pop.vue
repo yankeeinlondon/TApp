@@ -2,9 +2,10 @@
  
 -->
 <script lang="ts">
-const {cuid} = useCuid();
-const defaultId = cuid();
+    const {cuid} = useCuid();
+    const defaultId = cuid();
 </script>
+
 <script setup lang="ts">
 
 const p = withDefaults(

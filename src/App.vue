@@ -1,4 +1,27 @@
 <script setup lang="ts">
+import { TypedFunction } from "inferred-types/types";
+import { animate } from "motion";
+
+
+const onEnter = async (el: Element, onComplete: TypedFunction) => {
+  console.log("entering (app)", el)
+  await animate(
+    el,
+    { opacity: 1 }, 
+    { duration: 0.5 }
+  )
+  onComplete()
+}
+
+const onLeave = async (el: Element, onComplete: TypedFunction) => {
+  console.log("leaving (app)", el)
+  await animate(
+    el, 
+    { opacity: 0 , position: "absolute" }, 
+    { duration: 0.5 }
+  )
+  onComplete()
+}
 
 
 // https://github.com/vueuse/head
@@ -26,6 +49,11 @@ useHead({
 });
 </script>
 
+
 <template>
-<router-view />
+<router-view v-slot="{Component}">
+  <transition appear @enter="onEnter" @leave="onLeave" :css="false" >
+    <component :is="Component" />
+  </transition>
+</router-view>
 </template>

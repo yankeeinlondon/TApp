@@ -5,6 +5,7 @@ routes:
   storage: Storage
   components: Components
   animation: Animation
+  routing: Routing
   web: Web
 global:
   toggle_dark: Toggle Light and Dark Mode
